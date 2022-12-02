@@ -1,8 +1,8 @@
-# Fabric Mod Template
+# World Name Generator
 
-## Setup
+## Install
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+Install [Fabric Loader](https://fabricmc.net/use/installer/) and put `world-name-gen.jar` into `mods` folder.
 
 ## License
 
