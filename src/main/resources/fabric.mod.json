@@ -1,30 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "worldnamegen",
   "version": "${version}",
 
-  "name": "Client Mod Template",
-  "description": "This is an client only mod template!",
+  "name": "World Name Generator",
+  "description": "Supplies a generated name when creating a new world.",
   "authors": [
-    "Me"
+    "Vulp35"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/Vulp35/fabric-mod-template",
-    "issues": "https://github.com/Vulp35/fabric-mod-template/issues"
+    "sources": "https://github.com/Vulp35/world-name-gen",
+    "issues": "https://github.com/Vulp35/world-name-gen/issues"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/worldnamegen/icon.png",
 
   "environment": "client",
   "entrypoints": {
     "client": [
-      "net.fabricmc.example.ExampleMod"
+      "net.vulp35.worldnamegen.ExampleMod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "worldnamegen.mixins.json"
   ],
 
   "depends": {

@@ -1,4 +1,4 @@
-package net.fabricmc.example;
+package net.vulp35.worldnamegen;
 
 import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
