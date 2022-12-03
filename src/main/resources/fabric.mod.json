@@ -20,7 +20,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "net.vulp35.worldnamegen.ExampleMod"
+      "net.vulp35.worldnamegen.WorldNameGen"
     ]
   },
   "mixins": [
