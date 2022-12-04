@@ -13,8 +13,14 @@ public class NameGenerator {
 
 // TODO: MORE WORDS!!
     static String[]prefixes = {"The",""};
-    static String[]adjectives = {"Dirty", "Vast", "Open", "Wide", "Rolling", "Sprawling", "Misty"};
-    static String[]nouns = {"Hills", "Caves", "Meadow", "Mountains", "Ravine", "Rivers", "River", "Hill" };
+    static String[]adjectives = {"Dirty", "Vast", "Open", "Wide", "Rolling", "Sprawling", "Misty", "Empty", "Dry", "Wet",
+                                    "Far-off", "Ruthless", "Old", "New", "Cruel", "Familiar","Unlucky", "Dusty", "Dark",
+                                    "Bright", "Ancient", "Modern", "Mythical", "Chaotic", "Medieval", "Familiar", "Unfamiliar",
+                                    "Spacious", "Endless", "Lifeless", "Barren", "Thriving", "Great", "Big", "Great Big"};
+    static String[]nouns = {"Hills", "Caves", "Meadow", "Mountains", "Ravine", "Rivers", "River", "Hill", "Expanse",
+                            "Abyss", "Archipelago", "Backwaters", "Bay", "Canyon", "Bog", "Cliff", "Confluence", "Crater",
+                            "Desert", "Glacier", "Island", "Swamp", "Cave", "Peak", "Stream", "Reef", "Fjord", "Butte",
+                            "Dune", "Dunes", "Tundra", "Wetland", "Wetlands"};
 
 
     public static String getNewName() {
