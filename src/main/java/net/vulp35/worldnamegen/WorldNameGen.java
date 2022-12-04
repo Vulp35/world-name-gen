@@ -1,6 +1,7 @@
 package net.vulp35.worldnamegen;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.vulp35.worldnamegen.utils.NameGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,5 +20,7 @@ public class WorldNameGen implements ClientModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+
+		NameGenerator.registerNameGenerator();
 	}
 }
