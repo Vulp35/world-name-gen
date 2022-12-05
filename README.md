@@ -3,7 +3,7 @@
 #### Tired of trying to figure out what to name your new world?
 #### Well now with the push of a button, it can be done for you!
 
-<img width="400" alt="Screenshot 2022-12-01 204053" src="https://user-images.githubusercontent.com/45741898/205202819-3a096764-522d-439e-a354-f4f28249a932.png">
+<img width="500" alt="Screenshot Showing The Spacious Expanse as the world name" src="https://user-images.githubusercontent.com/45741898/205523858-6a1ba367-19c8-41fe-b2ed-633919c4aaf1.png">
 
 ### Install
 
