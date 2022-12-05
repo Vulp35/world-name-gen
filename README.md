@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="541" alt="Banner" src="https://user-images.githubusercontent.com/45741898/205541790-8ab07b0f-5ba0-4142-80b2-350ffffcb578.png">
+    <img width="541" alt="Banner" src="https://user-images.githubusercontent.com/45741898/205552819-eac65f48-ca9f-45ae-baaa-4544b6dfb08e.gif">
 </p>
 
 ---
@@ -22,4 +22,3 @@ Install [Fabric Loader](https://fabricmc.net/use/installer/) and put `world-name
 ### License
 
 This mod is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
-
