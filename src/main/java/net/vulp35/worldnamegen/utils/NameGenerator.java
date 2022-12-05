@@ -35,7 +35,6 @@ public class NameGenerator {
         } else {
             newName = adjective + " " + noun;
         }
-        WorldNameGen.LOGGER.info("Generated name: " +newName);
         return newName;
 
     }
