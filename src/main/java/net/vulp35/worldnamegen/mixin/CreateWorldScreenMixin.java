@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(CreateWorldScreen.class)
 public abstract class CreateWorldScreenMixin extends Screen {
 
-    private TextFieldWidget levelNameField;
+    @Shadow private TextFieldWidget levelNameField;
     private static final Identifier GENERATE_BUTTON_TEXTURE = new Identifier("worldnamegen", "textures/gui/generate.png");
 
     @Shadow protected abstract <T extends Element & Drawable & Selectable> T addDrawableChild(T drawableElement);
