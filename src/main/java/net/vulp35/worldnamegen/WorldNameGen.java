@@ -20,7 +20,6 @@ public class WorldNameGen implements ClientModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
-
 		NameGenerator.registerNameGenerator();
 	}
 }
