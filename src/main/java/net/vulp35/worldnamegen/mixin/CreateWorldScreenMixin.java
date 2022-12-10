@@ -22,6 +22,7 @@ public abstract class CreateWorldScreenMixin extends Screen {
 
     @Shadow private TextFieldWidget levelNameField;
     private static final Identifier GENERATE_BUTTON_TEXTURE = new Identifier("worldnamegen", "textures/gui/generate.png");
+    private static final Identifier SETTINGS_BUTTON_TEXTURE = new Identifier("worldnamegen", "textures/gui/settings.png");
 
     @Shadow protected abstract <T extends Element & Drawable & Selectable> T addDrawableChild(T drawableElement);
 
@@ -36,6 +37,12 @@ public abstract class CreateWorldScreenMixin extends Screen {
                 new TexturedButtonWidget(this.width / 2 + 105, 60, 20, 20, 0, 0, 20,
                         GENERATE_BUTTON_TEXTURE, 32, 64,
                         (button) -> this.levelNameField.setText(NameGenerator.getNewName())));
+        ButtonWidget settingsButton = this.addDrawableChild(
+                new TexturedButtonWidget(this.width / 2 + 130, 60, 20, 20, 0, 0, 20,
+                        SETTINGS_BUTTON_TEXTURE, 32, 64,
+                        (button) -> {
+                            //Go to settings
+                        }));
     }
 
 }
