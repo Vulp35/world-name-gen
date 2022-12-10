@@ -1,7 +1,7 @@
 package net.vulp35.worldnamegen.utils;
 
-
 import net.vulp35.worldnamegen.WorldNameGen;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
@@ -9,6 +9,7 @@ public class NameGenerator {
 // TODO: Max length of 32.
 // TODO: Put generated names into an array to check against so they are not shown again.
 // TODO: Print to log how many possible combinations there can be.
+
 
 
 // TODO: MORE WORDS!!
@@ -24,6 +25,19 @@ public class NameGenerator {
 
 
     public static String getNewName() {
+        String newName = generateName();
+
+
+        while (newName.length() > WorldNameGen.getConfig().getConfig().maxNameLength ) {
+            newName = generateName();
+        }
+
+        return newName;
+
+    }
+
+    @NotNull
+    private static String generateName() {
         Random random = new Random();
         String prefix = prefixes[random.nextInt(prefixes.length)];
         String adjective = adjectives[random.nextInt(adjectives.length)];
@@ -36,7 +50,6 @@ public class NameGenerator {
             newName = adjective + " " + noun;
         }
         return newName;
-
     }
 
     public static void  registerNameGenerator() {
