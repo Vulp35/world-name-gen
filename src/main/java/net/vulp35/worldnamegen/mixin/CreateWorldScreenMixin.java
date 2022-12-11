@@ -12,8 +12,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.vulp35.worldnamegen.config.ConfigGui;
 import net.vulp35.worldnamegen.utils.NameGenerator;
-import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -29,8 +27,6 @@ public abstract class CreateWorldScreenMixin extends Screen {
 
     @Shadow protected abstract <T extends Element & Drawable & Selectable> T addDrawableChild(T drawableElement);
 
-    @Shadow @Final @Nullable private Screen parent;
-
     protected CreateWorldScreenMixin(Text title, TextFieldWidget levelNameField) {
         super(title);
         this.levelNameField = levelNameField;
@@ -45,7 +41,7 @@ public abstract class CreateWorldScreenMixin extends Screen {
         ButtonWidget settingsButton = this.addDrawableChild(
                 new TexturedButtonWidget(this.width / 2 + 130, 60, 20, 20, 0, 0, 20,
                         SETTINGS_BUTTON_TEXTURE, 32, 64,
-                        (button) -> this.client.setScreen(new ConfigGui().createGui(client.currentScreen))));
+                        (button) -> this.client.setScreen(ConfigGui.createGui(client.currentScreen))));
     }
 
 }
