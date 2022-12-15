@@ -1,0 +1,69 @@
+name: Publish on Github, Curseforge & Modrinth    #The name of your GitHub Action on GitHub.com
+
+on: [ workflow_dispatch ]                         #When your GitHub Action will be executed ('pull_request' -> on every Merge(/Pull) Request; 'workflow_dispatch' -> allows manual execution through GitHub.com
+
+env:                                              #Environment variables that can later be referenced using ${{ env.MINECRAFT_VERSION }}. These are useful for repeating information and allow for quick changes for new mod updates
+  MINECRAFT_VERSION: 1.19.3
+  JAVA_VERSION: 17
+  VERSION: 0.1.2+1.19
+  RELEASE_NAME: World Name Generator 0.1.2
+  MODRINTH_PROJECT_ID: iNOl2vfE
+  MODRINTH_TOKEN: ${{ secrets.PUBLISH_MODRINTH_TOKEN }}
+  CURSEFORGE_PROJECT_ID: 720699
+  CURSEFORGE_TOKEN: ${{ secrets.PUBLISH_CURSEFORGE_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.PUBLISH_GITHUB_TOKEN }}
+
+permissions:
+  contents: write
+
+jobs:                                             #The place where you actually tell the GitHub server what to do.
+  build:                                          #To publish your mod you only need one 'job', here it is called 'build'.
+    runs-on: ubuntu-latest                        #'runs-on' specifies the operation system (linux).
+    steps:
+      - name: Check Environment Variables
+        run: env
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "temurin"
+          java-version: ${{env.JAVA_VERSION}}
+
+      - name: Make Gradle Wrapper Executable
+        if: ${{ runner.os != 'Windows' }}
+        run: chmod +x ./gradlew
+
+      - name: Build
+        run: ./gradlew clean build
+
+      - name: Publish (CurseForge/Modrinth/Github)
+        uses: Kir-Antipov/mc-publish@v3.2
+        with:
+          curseforge-id: ${{env.CURSEFORGE_PROJECT_ID}}
+          curseforge-token: "${{env.CURSEFORGE_TOKEN}}"
+          curseforge-dependencies: 306612 | depends
+
+          modrinth-id: ${{env.MODRINTH_PROJECT_ID}}
+          modrinth-token: "${{env.MODRINTH_TOKEN}}"
+          modrinth-featured: true
+          modrinth-unfeature-mode: subset
+          modrinth-dependencies: P7dR8mSH | depends
+
+          github-tag: "v${{env.VERSION}}"
+          github-token: "${{env.GITHUB_TOKEN}}"
+
+          name: "${{env.RELEASE_NAME}}"
+          version: "${{env.VERSION}}"
+          version-type: release
+          github-generate-changelog: true
+
+          loaders: fabric
+          game-versions: |
+            1.19.2
+            "${{env.MINECRAFT_VERSION}}"
+          java: "${{env.JAVA_VERSION}}"
