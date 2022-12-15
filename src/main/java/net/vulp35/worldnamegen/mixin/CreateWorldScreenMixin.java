@@ -42,7 +42,7 @@ public abstract class CreateWorldScreenMixin extends Screen {
                         (button) -> this.levelNameField.setText(NameGenerator.getNewName())));
     }
 
-    @Inject(at = @At("RETURN"), method = "setMoreOptionsOpen*")
+    @Inject(at = @At("RETURN"), method = "setMoreOptionsOpen(Z)V")
     private void moreOptionsScreenOpen(CallbackInfo ci) {
         if (this.generateNameButton != null) {
             this.generateNameButton.visible = !moreOptionsOpen;
