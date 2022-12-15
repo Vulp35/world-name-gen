@@ -65,5 +65,5 @@ jobs:                                             #The place where you actually 
           loaders: fabric
           game-versions: |
             1.19.2
-            "${{env.MINECRAFT_VERSION}}"
+            ${{env.MINECRAFT_VERSION}}
           java: "${{env.JAVA_VERSION}}"
