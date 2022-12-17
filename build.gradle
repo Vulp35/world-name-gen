@@ -10,6 +10,11 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+// Make a collection of all api modules we wish to use
+Set<String> apiModules = [
+		"fabric-resource-loader-v0"
+]
+
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
@@ -25,7 +30,13 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+//	modImplementation include("net.fabricmc.fabric-api:fabric-resource-loader-v0:${project.fabric_version}")
+
+
+// Add each module as a dependency
+	apiModules.forEach {
+		include(modImplementation(fabricApi.module(it, project.fabric_version)))
+	}
 
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
