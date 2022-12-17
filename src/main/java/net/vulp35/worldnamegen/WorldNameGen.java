@@ -2,6 +2,7 @@ package net.vulp35.worldnamegen;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.vulp35.worldnamegen.utils.NameGenerator;
+import net.vulp35.worldnamegen.utils.RandomHashGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,5 +22,6 @@ public class WorldNameGen implements ClientModInitializer {
 
 		LOGGER.info("Initializing World Name Generator");
 		NameGenerator.registerNameGenerator();
+		RandomHashGenerator.registerHashGenerator();
 	}
 }
